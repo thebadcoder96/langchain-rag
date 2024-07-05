@@ -19,6 +19,26 @@ st.write("Welcome to the LangChain Chat App! 😎")
 
 models = ["llama3-70b-8192", "llama3-8b-8192", "mixtral-8x7b-32768", "gemma-7b-it"]
 
+with st.expander("Learn more about models and temperature"):
+    cols1 = st.columns(2)
+    with cols1[0]:
+        st.markdown("""
+        ### Models
+        - **llama3-70b-8192**: Largest model, best performance, slower
+        - **llama3-8b-8192**: Smaller model, faster, less capable
+        - **mixtral-8x7b-32768**: Mixture of experts model, good balance of performance and speed
+        - **gemma-7b-it**: Google's Gemma model, instruction-tuned version""")
+    with cols1[1]:
+        st.markdown("""
+        ### Temperature
+        Temperature affects the randomness of the model's output:
+        - **0.0**: Most deterministic, always choosing the most likely next token
+        - **0.5**: Balanced between deterministic and random
+        - **1.0**: Standard setting, introduces some variability
+        - **2.0**: Most random, can lead to more creative but potentially less coherent responses
+        
+        Choose a lower temperature for fact-based tasks and a higher temperature for creative tasks.
+        """)
 cols = st.columns(2)
 with cols[0]:
     model = st.selectbox(label="**LLM Model**", 
